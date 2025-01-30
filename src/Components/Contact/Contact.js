@@ -12,19 +12,19 @@ const Contact = () => {
         </a>
 
         <i className="fa fa-linkedin"></i>
-        <a className="mail-links">
+        <a className="mail-links" href="chowiya6@gmail.com">
           User Name: Chowiya
         </a>
 
         <i className="fa fa-github"></i>
-        <a className="mail-links">
+        <a className="mail-links"  href="https://github.com/Chowiya/Home4paw-FE.git">
           chowiya
         </a>
 
         
 
         <i className="fa fa-phone"></i>
-        <a className="mail-links">
+        <a className="mail-links" href="tel:+123456789" >
           +123456789
         </a>
       </div>
