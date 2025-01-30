@@ -15,12 +15,10 @@ function AdoptForm(props) {
   const [SuccPopup, setSuccPopup] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  console.log("🔄 AdoptForm component rendered, isSubmitting:", isSubmitting);
-
-
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submission prevented")
+
     setEmailError(false);
     setFormError(false)
 
@@ -63,7 +61,7 @@ function AdoptForm(props) {
         setErrPopup(true)
         return;
       } else {
-        console.log("Form submitted successfully")
+       
         setSuccPopup(true);
 
 
@@ -78,7 +76,7 @@ function AdoptForm(props) {
     }
     catch (err) {
       setErrPopup(true)
-      console.error("Fetching error:",err);
+  
 
     } finally{
       setIsSubmitting(false)
