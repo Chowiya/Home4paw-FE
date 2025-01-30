@@ -17,6 +17,7 @@ function AdoptForm(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("Form submission prevented")
     setEmailError(false);
     setFormError(false)
 
@@ -28,12 +29,14 @@ function AdoptForm(props) {
       !familyComposition
     ) {
       setFormError(true);
+      console.log("Form validation failed")
       return;
     }
 
     try {
 
       setIsSubmitting(true)
+      console.log("sending request")
 
       const response = await fetch(`${process.env.REACT_APP_URL}/form/save`, {
         method: 'POST',
@@ -53,15 +56,17 @@ function AdoptForm(props) {
       })
 
       if (!response.ok) {
+        console.log("response not ok",response.status)
         setErrPopup(true)
         return;
       } else {
+        console.log("Form submitted successfully")
         setSuccPopup(true)
       }
     }
     catch (err) {
       setErrPopup(true)
-      console.error(err);
+      console.error("Fetching error:",err);
 
     }
 
