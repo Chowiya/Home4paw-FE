@@ -18,6 +18,7 @@ function AdoptForm(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setEmailError(false);
+    setFormError(false)
 
     if (
       !email ||
