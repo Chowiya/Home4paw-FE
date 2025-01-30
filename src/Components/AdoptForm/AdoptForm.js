@@ -62,27 +62,26 @@ function AdoptForm(props) {
         return;
       } else {
         console.log("Form submitted successfully")
-        setSuccPopup(true)
-      }
-    }
-    catch (err) {
-      setErrPopup(true)
-      console.error("Fetching error:",err);
+        setSuccPopup(true);
 
-    }
 
-    if(!response.ok){
-      setErrPopup(true);
-      return;
-    }else{
-      setEmailError(false);
+        setEmailError(false);
       setFormError(false);
       setEmail("");
       setPhoneNo("");
       setLivingSituation("");
       setPreviousExperience("");
       setFamilyComposition("");
+      }
     }
+    catch (err) {
+      setErrPopup(true)
+      console.error("Fetching error:",err);
+
+    } finally{
+      setIsSubmitting(false)
+
+    } 
   };
 
   return (
