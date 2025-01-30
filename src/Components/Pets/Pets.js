@@ -17,7 +17,7 @@ const Pets = () => {
         return;
       }
       try {
-        const response = await fetch(`${import.meta.env.API_URL}/approvedPets`, {
+        const response = await fetch(`${process.env.REACT_APP_URL}/approvedPets`, {
           headers: {
             'Authorization': `Bearer ${user.token}`
           }
