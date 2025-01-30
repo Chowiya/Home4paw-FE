@@ -62,9 +62,6 @@ function AdoptForm(props) {
     catch (err) {
       setErrPopup(true)
       console.error(err);
-      return;
-    } finally {
-      setIsSubmitting(false)
 
     }
 
@@ -113,6 +110,7 @@ function AdoptForm(props) {
               <input
                 type="text"
                 value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="custom-input"
               />
             </div>
