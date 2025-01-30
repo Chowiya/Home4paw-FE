@@ -87,7 +87,7 @@ const PostPetSection = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/services", {
+      const response = await fetch(`${import.meta.env.API_URL}/services`, {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${user.token}`

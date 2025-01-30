@@ -11,7 +11,7 @@ export const useSignup = () => {
     setSignupError(null);
 
     try {
-      const otpResponse = await fetch('http://localhost:4000/api/verifyotp', {
+      const otpResponse = await fetch(`${import.meta.env.API_URL}/api/verifyotp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),

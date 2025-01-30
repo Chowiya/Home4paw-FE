@@ -16,9 +16,9 @@ import FourOhFourPage from "./Components/404/FourOhFourPage";
 
 const Layout = ({ children }) => (
   <>
-    <Navbar title="PawFinds" />
+    <Navbar title="Home4paw" />
     {children}
-    <Footer title="PawFinds" />
+    <Footer title="Home4paw" />
   </>
 );
 

@@ -17,7 +17,7 @@ const AdoptedCards = (props) => {
  const handleReject = async () => {
     setIsDeleting(true)
     try {
-      const response = await fetch(`http://localhost:4000/delete/${props.pet._id}`, {
+      const response = await fetch(`${import.meta.env.API_URL}/delete/${props.pet._id}`, {
         method: 'DELETE',
         headers: {
            'Authorization': `Bearer ${user.token}`
@@ -42,7 +42,7 @@ const AdoptedCards = (props) => {
     <div className='req-containter'>
       <div className='pet-view-card'>
         <div className='pet-card-pic'>
-          <img src={`http://localhost:4000/images/${props.pet.filename}`} alt={props.pet.name} />
+          <img src={`${import.meta.env.API_URL}/images/${props.pet.filename}`} alt={props.pet.name} />
         </div>
         <div className='pet-card-details'>
           <h2>{props.pet.name}</h2>

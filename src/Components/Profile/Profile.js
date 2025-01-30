@@ -20,7 +20,7 @@ const Profile = () => {
         const newEmail = tempValues.email.toLowerCase();
 
         try {
-            const response = await fetch('http://localhost:4000/update', {
+            const response = await fetch(`${import.meta.env.API_URL}/update`, {
                 method: 'PUT',
                 headers: {
                     'Authorization': `Bearer ${user.token}`,

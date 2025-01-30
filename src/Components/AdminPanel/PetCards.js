@@ -28,7 +28,7 @@ const PetCards = (props) => {
   const handleApprove = async () => {
     setIsApproving(true);
     try {
-      const response = await fetch(`http://localhost:4000/approving/${props.pet._id}`, {
+      const response = await fetch(`${import.meta.env.API_URL}/approving/${props.pet._id}`, {
         method: 'PUT',
         body: JSON.stringify({
           status: "Approved"
