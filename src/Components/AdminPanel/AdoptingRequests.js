@@ -16,7 +16,7 @@ const AdoptingRequests = () => {
 
   const fetchForms = useCallback(async () => {
     try {
-      const response = await fetch(`${import.meta.env.API_URL}/form/getForms`, {
+      const response = await fetch(`${process.env.REACT_APP_URL}/form/getForms`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
@@ -35,7 +35,7 @@ const AdoptingRequests = () => {
 
   const fetchPets = useCallback(async () => {
     try {
-      const response = await fetch(`${import.meta.env.API_URL}/approvedPets`,{
+      const response = await fetch(`${process.env.REACT_APP_URL}/approvedPets`,{
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
@@ -129,7 +129,7 @@ const AdoptingRequests = () => {
           <div className='popup-content'>
             <div className='pet-view-card'>
               <div className='pet-card-pic'>
-                <img src={`${import.meta.env.API_URL}/images/${selectedPet.filename}`} alt={selectedPet.name} />
+                <img src={`${process.env.REACT_APP_URL}/images/${selectedPet.filename}`} alt={selectedPet.name} />
               </div>
               <div className='pet-card-details'>
                 <h2>{selectedPet.name}</h2>

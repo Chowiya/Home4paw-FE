@@ -87,7 +87,7 @@ const PostPetSection = () => {
     }
 
     try {
-      const response = await fetch(`${import.meta.env.API_URL}/services`, {
+      const response = await fetch(`${process.env.REACT_APP_URL}/services`, {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${user.token}`

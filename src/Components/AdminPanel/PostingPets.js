@@ -9,7 +9,7 @@ const PostingPets = () => {
 
   const fetchRequests = useCallback(async () => {
     try {
-      const response = await fetch(`${import.meta.env.API_URL}/request`, {
+      const response = await fetch(`${process.env.REACT_APP_URL}/request`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }

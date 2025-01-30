@@ -8,11 +8,11 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const userResponse = await fetch(`${import.meta.env.API_URL}/Dashboard/user-registrations`);
+                const userResponse = await fetch(`${process.env.REACT_APP_URL}/Dashboard/user-registrations`);
                 const userData = await userResponse.json();
                 setUserData(userData);
 
-                const petResponse = await fetch(`${import.meta.env.API_URL}/pet-types`);
+                const petResponse = await fetch(`${process.env.REACT_APP_URL}/pet-types`);
                 const petData = await petResponse.json();
                 const petDataMapped = petData.map(item => ({ name: item._id, value: item.count }));
 

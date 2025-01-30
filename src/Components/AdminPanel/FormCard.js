@@ -46,7 +46,7 @@ const FormCard = (props) => {
   
   const deleteFormAdoptedPet = async () => {
     try {
-      const deleteResponse = await fetch(`${import.meta.env.API_URL}/form/delete/many/${props.form.petId}`, {
+      const deleteResponse = await fetch(`${process.env.REACT_APP_URL}/form/delete/many/${props.form.petId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${user.token}`
@@ -65,7 +65,7 @@ const FormCard = (props) => {
   const handleReject = async () => {
     setIsDeleting(true)
     try {
-      const response = await fetch(`${import.meta.env.API_URL}/form/reject/${props.form._id}`, {
+      const response = await fetch(`${process.env.REACT_APP_URL}/form/reject/${props.form._id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${user.token}`

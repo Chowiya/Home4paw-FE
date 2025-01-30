@@ -12,7 +12,7 @@ export const useSignup = () => {
 
     try {
       // OTP verification request
-      const otpResponse = await fetch(`${process.env.API_URL}/api/verifyotp`, {
+      const otpResponse = await fetch(`${process.env.REACT_APP_URL}/api/verifyotp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),
@@ -24,7 +24,7 @@ export const useSignup = () => {
         setSignupError(jsonOtp.error || 'OTP verification failed. Please try again.');
       } else {
         // Signup request
-        const response = await fetch(`${process.env.API_URL}/signup`, {
+        const response = await fetch(`${process.env.REACT_APP_URL}/signup`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, password }),

@@ -9,7 +9,7 @@ const AdoptedHistory = () => {
 
   const fetchAdoptedPets = useCallback(async () => {
     try {
-      const response = await fetch(`${import.meta.env.API_URL}/adoptedPets`, {
+      const response = await fetch(`${process.env.REACT_APP_URL}/adoptedPets`, {
         headers: {
           'Authorization': `Bearer ${user.token}`
         }
