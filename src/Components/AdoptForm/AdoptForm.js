@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { useAuthContext } from "../../hooks/UseAuthContext";
 
 function AdoptForm(props) {
-  console.log("Adoption component rendered,isSubmitting:",isSubmitting);
-  console.log("props received in adoptForm:",props)
+
   const {user} = useAuthContext();
   const [email, setEmail] = useState(user.email);
   const [phoneNo, setPhoneNo] = useState("");
@@ -15,6 +14,8 @@ function AdoptForm(props) {
   const [ErrPopup, setErrPopup] = useState(false);
   const [SuccPopup, setSuccPopup] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  console.log("🔄 AdoptForm component rendered, isSubmitting:", isSubmitting);
 
 
   const handleSubmit = async (e) => {
