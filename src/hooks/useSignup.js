@@ -11,33 +11,32 @@ export const useSignup = () => {
     setSignupError(null);
 
     try {
+      // OTP verification request
       const otpResponse = await fetch(`${import.meta.env.API_URL}/api/verifyotp`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, otp }),
-      })
+      });
 
       const jsonOtp = await otpResponse.json();
       if (!otpResponse.ok) {
         setSignupIsLoading(false);
         setSignupError(jsonOtp.error || 'OTP verification failed. Please try again.');
       } else {
-        const response = await fetch('http://localhost:4000/signup', {
+        // Signup request
+        const response = await fetch(`${import.meta.env.API_URL}/signup`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ name, email, password }),
         });
 
         const json = await response.json();
-
         if (!response.ok) {
           setSignupIsLoading(false);
           setSignupError(json.error || 'Something went wrong. Please try again.');
         } else {
           localStorage.setItem('user', JSON.stringify(json));
-
           dispatch({ type: 'LOGIN', payload: json });
-
           setSignupIsLoading(false);
           setSignupError(null);
         }
@@ -50,3 +49,4 @@ export const useSignup = () => {
 
   return { signup, signupIsLoading, signupError, setSignupError };
 };
+
