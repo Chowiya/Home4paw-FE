@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuthContext } from "../../hooks/UseAuthContext";
 
 function AdoptForm(props) {
+  console.log("Adoption component rendered")
   const {user} = useAuthContext();
   const [email, setEmail] = useState(user.email);
   const [phoneNo, setPhoneNo] = useState("");
@@ -70,13 +71,18 @@ function AdoptForm(props) {
 
     }
 
-    setEmailError(false);
-    setFormError(false);
-    setEmail("");
-    setPhoneNo("");
-    setLivingSituation("");
-    setPreviousExperience("");
-    setFamilyComposition("");
+    if(!response.ok){
+      setErrPopup(true);
+      return;
+    }else{
+      setEmailError(false);
+      setFormError(false);
+      setEmail("");
+      setPhoneNo("");
+      setLivingSituation("");
+      setPreviousExperience("");
+      setFamilyComposition("");
+    }
   };
 
   return (
@@ -101,7 +107,7 @@ function AdoptForm(props) {
           </div>
         </div>
         <div className="form-div">
-          <form onSubmit={handleSubmit} className="custom-form">
+          <form onSubmit={handleSubmit} action='#' className="custom-form">
             
             <div className="custom-input-box">
               <div className="email-not-valid">
