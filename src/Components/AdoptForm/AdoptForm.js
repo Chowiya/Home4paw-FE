@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useAuthContext } from "../../hooks/UseAuthContext";
 
 function AdoptForm(props) {
-  console.log("Adoption component rendered")
+  console.log("Adoption component rendered,isSubmitting:",isSubmitting);
+  console.log("props received in adoptForm:",props)
   const {user} = useAuthContext();
   const [email, setEmail] = useState(user.email);
   const [phoneNo, setPhoneNo] = useState("");
