@@ -23,7 +23,7 @@ const PetsViewer = (props) => {
     <div className='pet-view-card'>
       <div className='pet-card-pic'>
 
-        <img src={`${process.env.REACT_APP_URL}/images/${props.pet.filename}`} alt={props.pet.name}  onError={(e) => e.target.src = "https://via.placeholder.com/150"} />
+        <img src={`${process.env.REACT_APP_URL}/images/${props.pet.filename}`} alt={props.pet.name}  onError={(e) => e.target.src = "https://via.placeholder.com/150/"} />
        
       </div>
       <div className='pet-card-details'>
@@ -54,3 +54,4 @@ const PetsViewer = (props) => {
 };
 
 export default PetsViewer;
+
