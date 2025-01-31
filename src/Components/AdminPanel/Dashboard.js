@@ -16,7 +16,7 @@ const Dashboard = () => {
 
             }
             try {
-                const userResponse = await fetch(`${process.env.REACT_APP_URL}/Dashboard/user-registrations`,{
+                const userResponse = await fetch(`${process.env.REACT_APP_URL}/dashboard/user-registrations`,{
                     headers:{
                         'Authorization': `Bearer ${user.token}`
                     }
@@ -32,7 +32,7 @@ const Dashboard = () => {
              
 
                 
-        const petResponse = await fetch(`${process.env.REACT_APP_URL}/pet-types`, {
+        const petResponse = await fetch(`${process.env.REACT_APP_URL}/dashboard/pet-types`, {
             method: 'GET',
             headers: {
               'Authorization': `Bearer ${user.token}`,
