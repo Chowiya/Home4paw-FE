@@ -40,9 +40,15 @@ const Dashboard = () => {
           });
   
           if (!petResponse.ok) {
-            console.error('Failed to fetch pet types:', petResponse.status);
+            if (petResponse.status === 401) {
+                console.error('Unauthorized access: Invalid or missing token.');
+            } else if (petResponse.status === 404) {
+                console.error('Pet types endpoint not found.');
+            } else {
+                console.error('Failed to fetch pet types:', petResponse.status);
+            }
             return;
-          }
+        }
 
 
                 const petData = await petResponse.json();
