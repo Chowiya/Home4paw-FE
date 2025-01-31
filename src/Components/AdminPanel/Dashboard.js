@@ -9,16 +9,27 @@ const Dashboard = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+
+            if(!user || !user.token){
+                console.log("User is not authenticated");
+                return;
+
+            }
             try {
-                const userResponse = await fetch(`${process.env.REACT_APP_URL}/Dashboard/user-registrations`);
+                const userResponse = await fetch(`${process.env.REACT_APP_URL}/Dashboard/user-registrations`,{
+                    headers:{
+                        'Authorization': `Bearer ${user.token}`
+                    }
+                });
+                if (!userResponse.ok) {
+                    console.error('Failed to fetch user data:', userResponse.status);
+                    return;
+                }
+               
                 const userData = await userResponse.json();
                 setUserData(userData);
 
-                if(!user || !user.token){
-                    console.log("User is not authenticated");
-                    return;
-                
-                }
+             
 
                 
         const petResponse = await fetch(`${process.env.REACT_APP_URL}/pet-types`, {
