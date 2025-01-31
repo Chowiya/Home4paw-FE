@@ -14,10 +14,13 @@ const PetsViewer = (props) => {
     return formatDistanceToNow(date, { addSuffix: true });
   };
 
+
   return (
     <div className='pet-view-card'>
       <div className='pet-card-pic'>
+      {console.log(`Image URL: ${process.env.REACT_APP_URL}/images/${props.pet.filename}`)}
         <img src={`${process.env.REACT_APP_URL}/images/${props.pet.filename}`} alt={props.pet.name} />
+       
       </div>
       <div className='pet-card-details'>
         <h2>{props.pet.name}</h2>
