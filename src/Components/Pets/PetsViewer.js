@@ -15,11 +15,15 @@ const PetsViewer = (props) => {
   };
 
 
+  console.log("API Base URL:", process.env.REACT_APP_URL);
+  console.log("Full Image URL:", `${process.env.REACT_APP_URL}/images/${props.pet.filename}`);
+  console.log("Pet Data:", props.pet);
+
   return (
     <div className='pet-view-card'>
       <div className='pet-card-pic'>
-      {console.log(`Image URL: ${process.env.REACT_APP_URL}/images/${props.pet.filename}`)}
-        <img src={`${process.env.REACT_APP_URL}/images/${props.pet.filename}`} alt={props.pet.name} />
+
+        <img src={`${process.env.REACT_APP_URL}/images/${props.pet.filename}`} alt={props.pet.name}  onError={(e) => e.target.src = "https://via.placeholder.com/150"} />
        
       </div>
       <div className='pet-card-details'>
