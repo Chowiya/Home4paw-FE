@@ -55,7 +55,7 @@ const Footer = (props) => {
             <i className="fa fa-whatsapp"></i> WhatsApp
           </a>
         </p>
-        <p>&copy; 2023 chowiya's pet adoption</p>
+        <p>&copy; 2025 chowiya's pet adoption</p>
       </div>
     </footer>
   );

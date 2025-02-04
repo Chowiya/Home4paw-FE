@@ -1,4 +1,4 @@
-import { createContext, useReducer, useEffect } from 'react';
+import { createContext, useReducer, useEffect, useState } from 'react';
 
 export const AuthContext = createContext();
 
@@ -15,19 +15,28 @@ export const authReducer = (state, action) => {
 
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, { user: null });
+  const [isLoading, setIsLoading] = useState(true); // Loading state
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem('user'));
     if (user) {
       dispatch({ type: 'LOGIN', payload: user });
     }
-  }, []); 
+    setIsLoading(false); // Finished loading
+  }, []);
 
-  console.log("AuthContext State:", state);
-  
+  useEffect(() => {
+    console.log("AuthContext State Updated:", state);
+  }, [state]);
+
+  if (isLoading) {
+    return <div>Loading...</div>; // Show loading spinner
+  }
+
   return (
     <AuthContext.Provider value={{ user: state.user, dispatch }}>
       {children}
     </AuthContext.Provider>
   );
 };
+
