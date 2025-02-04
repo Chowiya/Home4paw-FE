@@ -99,7 +99,7 @@ function AdoptForm(props) {
           </div>
         </div>
         <div className="form-div">
-          <form onSubmit={handleSubmit} action="#" className="custom-form">
+          <form onSubmit={handleSubmit} className="custom-form">
             <div className="custom-input-box">
               <div className="email-not-valid">
                 <label htmlFor="email" className="custom-label">
